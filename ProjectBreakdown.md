@@ -1,6 +1,6 @@
 
 
-#Timeline
+# Timeline
 
 ## Day 1 - Tuesday - Nov 8
 
@@ -9,7 +9,7 @@
 - [x] Create Wire Frame v1
 - [x] Obtain approval for Wire Frame v1
 - [x] Implement Wire Frame v1
-- [ ] Deploy Wire Frame v1 via GitHub Pages
+- [x] Deploy Wire Frame v1 via GitHub Pages
 - [x] Update JS to connect to new HTML/CSS
 - [ ] Taskout JS and app.js logic/functionality
 - [ ] Update README.md for template
