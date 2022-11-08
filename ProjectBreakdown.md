@@ -17,7 +17,7 @@
 
 -----------------------------
 
-[Wire Frame v1](.images/wireFrame-v1.jpg)
+[Wire Frame v1](images/wireFrame-v1.jpg)
 
 
 ## Day 2 - Wednesday - Nov 9
