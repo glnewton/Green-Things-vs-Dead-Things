@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Things vs Dead Things</title>
+    <link rel="stylesheet" href="style.css" />
+
+  </head>
+  <body>
+    <main id="gameWindow">
+      <section id="gameStatusBar">
+        <div id="roundCounterDisplay">Round #</div>
+        <div id="roundResultsDisplay">Win: 0</div>
+        <div id="roundResultsDisplay">Lose: 0</div>
+      </section>
+      <section id="characterBattleView">
+        <section id="playerCharacterView">
+          <section id="playerCharacterName">
+            <div>Player Name</div>
+          </section>
+          <section id="playerCharacterImage">
+            <img src="" alt="" class="blankBox" />
+          </section>
+          <section id="playerCharacterInfo">
+            <div>Player Info</div>
+            <div id="playerHealth"></div>
+            <div id="playerStrength"></div>
+            <div id="playerAccuracy"></div>
+          </section>
+        </section>
+        <section id="enemyCharacterView">
+          <section id="enemyCharacterName">
+            <div>Enemy Name</div>
+          </section>
+          <section id="enemyCharacterImage">
+            <img src="" alt="" class="blankBox" />
+          </section>
+          <section id="enemyCharacterInfo">
+            <div>Enemy Info</div>
+            <div id="enemyHealth"></div>
+            <div id="enemyStrength"></div>
+            <div id="enemyAccuracy"></div>
+          </section>
+        </section>
+      </section>
+      <section id="playerUI">
+        <button id="attackButton">Attack</button>
+        <button>Retreat</button>
+        <button>Quit Game</button>
+        <button id="startButton">Start</button>
+        <button>Play Again</button>
+      </section>
+      <section id="eventMessageBoard">
+        <section id="messageOutput">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+            veritatis ipsam dignissimos quod esse debitis consectetur quo! Neque
+            quasi perspiciatis, labore possimus, quaerat hic incidunt, error
+            nemo molestiae officia illum.
+          </p>
+        </section>
+      </section>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>
