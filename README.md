@@ -2,40 +2,28 @@
 
 Project Details
 Mandatory To Pass:
-MVP - Minimum Viable Product
 
-Your dom project must meet these requirements:
+## MVP Requirements:
 
-# 1 Built with HTML, CSS and JavaScript (must be visual and use the DOM not the Console)
+1. Built with HTML, CSS and JavaScript
+2. DOM-based
+3. Host on GitHub Pages
+4. Daily Commits
+5. README.md
 
-# 2 Hosted on Github pages
+## Game Mechanics Requirements:
 
-# 3 Commits to Github every day
+1. Two Player
+2. Win State
+3. Lose State
+4. Continue while not over
+5. Multiple Rounds
 
-# 4 A README.mdfile with explanations of the technologies used, the approach taken, a link to your live site, installation instructions, unsolved problems, etc. Here is a great guide on how to write a readme
+## Bonuses
 
+1. A way to reset the board and play again
+2. CSS to give your game a personal and fun style
+3. Responsive mobile design
 
-# 5 Game Requirements
-
-## Two Player Game
-
-## Win State
-
-## Lose State
-
-## A way to keep playing if the game is not over
-
-## Multiple rounds to play
-
-# 6 Strech Goals
-
-# A way to reset the board and play again
-# CSS to give your game a personal and fun style
-# Responsive mobile design
-
-
-Space Battle......
-
-Green Things vs Dead Things
 
 
