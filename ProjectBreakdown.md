@@ -8,9 +8,9 @@
 - [x] Create Project in GitHub
 - [x] Create Wire Frame v1
 - [x] Obtain approval for Wire Frame v1
-- [ ] Implement Wire Frame v1
+- [x] Implement Wire Frame v1
 - [ ] Deploy Wire Frame v1 via GitHub Pages
-- [ ] Update JS to connect to new HTML/CSS
+- [x] Update JS to connect to new HTML/CSS
 - [ ] Taskout JS and app.js logic/functionality
 - [ ] Update README.md for template
 - [ ] Final commit and push for the day
