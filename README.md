@@ -27,7 +27,21 @@ Mandatory To Pass:
 2. CSS to give your game a personal and fun style
 3. Responsive mobile design
 
+###
 
+- Update Create Class with speed, type, move type?
+- JS Modules??
+
+- Animations
+1. Fade In/Out
+2. Border Flashing
+3. Shaking Image
+4. Screen Dimming
+5. Health Bar
+
+- Sound Effect
+1. User Attack
+2. Enemy Attack
 
 ## Resources
 

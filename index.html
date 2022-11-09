@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Things vs Dead Things</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
 
   </head>
   <body>
     <main id="gameWindow">
       <section id="gameStatusBar">
-        <div id="roundCounterDisplay">Round #</div>
-        <div id="roundResultsDisplay">Win: 0</div>
-        <div id="roundResultsDisplay">Lose: 0</div>
+        <div id="roundCounterDisplay">Round: #</div>
+        <div id="playerWinsDisplay">Win: 0</div>
+        <div id="playerLosesDisplay">Lose: 0</div>
       </section>
-      <section id="characterBattleView">
+      <section id="characterBattleView" >
         <section id="playerCharacterView">
           <section id="playerCharacterName">
             <div>Player Name</div>
@@ -46,14 +47,16 @@
         </section>
       </section>
       <section id="playerUI">
-        <button id="attackButton">Attack</button>
-        <button>Retreat</button>
-        <button>Quit Game</button>
-        <button id="startButton">Start</button>
-        <button>Play Again</button>
+        <button type="button" class="btn btn-success" id="startButton">Start</button>
+        <button type="button" class="btn btn-success" id="attackButton">Attack</button>
+        <button type="button" class="btn btn-success" id="fightNextEnemyButton">Fight Next Enemy</button>
+        <button type="button" class="btn btn-warning" id="retreatButton">Retreat</button>
+        
+        <button type="button" class="btn btn-info"    id="playAgainButton">Play Again</button>
+        <button type="button" class="btn btn-danger"  id="quitGameButton">Quit Game</button>
       </section>
       <section id="eventMessageBoard">
-        <section id="messageOutput">
+        <section id="messageOutput" class="overflow-auto">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
             veritatis ipsam dignissimos quod esse debitis consectetur quo! Neque
@@ -63,6 +66,9 @@
         </section>
       </section>
     </main>
+    <!-- <script type="module" src="./Classes/Creature.js" defer></script>
+    <script type="module" src="./Classes/Plant.js" defer></script>
+    <script type="module" src="./Classes/Zombie.js" defer></script> -->
     <script src="app.js" defer></script>
   </body>
 </html>

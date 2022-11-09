@@ -12,7 +12,7 @@
 - [x] Deploy Wire Frame v1 via GitHub Pages
 - [x] Update JS to connect to new HTML/CSS
 - [ ] Taskout JS and app.js logic/functionality
-- [ ] Update README.md for template
+
 - [ ] Final commit and push for the day
 
 -----------------------------
@@ -22,11 +22,32 @@
 
 ## Day 2 - Wednesday - Nov 9
 
+- [ ] Complete Attack Sequence Logic - Lose, Restart, Play Again
+- [ ] Complete Attack Sequence UI Effects
+- [x] Incorporate Bootstrap for Buttons
+- [ ] Create Game state object??
+- [ ] Add images?
+
 ## Day 3 - Thursday - Nov 10
+
+- [ ] Complete Battle Round Logic
+- [ ] Complete Battle Round UI
+- [ ] 
 
 ## Day 4 - Friday - Nov 11
 
+- [ ] 
+- [ ] 
+- [ ] 
+
 ## Day 5 - Monday - Nov 14
+
+- [ ] 
+- [ ] 
+- [ ] 
 
 ## Day 6 - Tueday - Nov 15
 
+- [ ] Update README.md for template
+- [ ] Tweak GitHub Deployment
+- [ ] 
