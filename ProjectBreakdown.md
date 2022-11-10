@@ -26,10 +26,11 @@
 - [ ] Complete Attack Sequence UI Effects
 - [x] Incorporate Bootstrap for Buttons
 - [x] Refactor Enemy Generator factory
-- [ ] Add images?
+
 
 ## Day 3 - Thursday - Nov 10
 
+- [x] Add images?
 - [x] Create Game state object
 - [x] Complete Attack Sequence Logic - Fight Next Enemy
 - [ ] Complete Battle Round UI
