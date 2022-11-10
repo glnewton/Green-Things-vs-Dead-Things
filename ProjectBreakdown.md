@@ -13,7 +13,7 @@
 - [x] Update JS to connect to new HTML/CSS
 - [ ] Taskout JS and app.js logic/functionality
 
-- [ ] Final commit and push for the day
+- [x] Final commit and push for the day
 
 -----------------------------
 
@@ -22,15 +22,16 @@
 
 ## Day 2 - Wednesday - Nov 9
 
-- [ ] Complete Attack Sequence Logic - Lose, Restart, Play Again
+- [x] Complete Attack Sequence Logic - Lose, Restart, Play Again
 - [ ] Complete Attack Sequence UI Effects
 - [x] Incorporate Bootstrap for Buttons
-- [ ] Create Game state object??
+- [x] Refactor Enemy Generator factory
 - [ ] Add images?
 
 ## Day 3 - Thursday - Nov 10
 
-- [ ] Complete Battle Round Logic
+- [x] Create Game state object
+- [x] Complete Attack Sequence Logic - Fight Next Enemy
 - [ ] Complete Battle Round UI
 - [ ] 
 

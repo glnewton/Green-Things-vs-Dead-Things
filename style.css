@@ -61,7 +61,7 @@
     border-bottom: 1px solid black;
 }
 
-#playerCharacterImage, #enemyCharacterImage{
+#playerCharacterImageBox, #enemyCharacterImageBox{
     display: flex;
     align-items: center;
     justify-content: center;
