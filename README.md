@@ -85,3 +85,9 @@ Run the following code in your terminal to download the code:
 ## Resources
 
 - https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3
+
+## License
+
+MIT License
+
+MIT © [Gary Newton]()
