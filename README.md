@@ -38,9 +38,7 @@ Elements of both functional programming and object-oriented programming are used
 2. DOM-based 
 3. Hosted on GitHub Pages
 
-## Installation
-
-Instructions
+## Installation Instructions
 
 **Step 1: Clone the repository**
 
@@ -48,12 +46,12 @@ Run the following code in your terminal to download the code:
 
 `git clone https://github.com/glnewton/Green-Things-vs-Dead-Things.git`
 
-![Installation Screenshot 1](./images/gamePlayScreenshot1.jpg)
+![Installation Screenshot 1](./images/installationScreenshot1.jpg)
 
 
 **Step 2: Using VSCode, launch the index.html with the Live Server extension.**
 
-![Installation Screenshot 2](./images/gamePlayScreenshot2.jpg)
+![Installation Screenshot 2](./images/installationScreenshot2.jpg)
 
 
 ## Game Mechanics:
