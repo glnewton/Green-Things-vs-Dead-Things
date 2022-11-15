@@ -1,5 +1,3 @@
-
-
 # Timeline
 
 ## Day 1 - Tuesday - Nov 8
@@ -34,21 +32,26 @@
 - [x] Create Game state object
 - [x] Complete Attack Sequence Logic - Fight Next Enemy
 - [ ] Complete Battle Round UI
-- [ ] 
 
 ## Day 4 - Friday - Nov 11
 
-- [ ] 
-- [ ] 
-- [ ] 
-
-## Day 5 - Monday - Nov 14
-
-- [ ] 
-- [ ] 
-- [ ] 
+- [x] Implement - Sound Effect - User Attack
+- [x] Implement - Sound Effect - Enemy Attack
+- [x] Implement - Attack Animation - Flashing Backgroud Image
 
 ## Day 6 - Tueday - Nov 15
+
+- [x] Implement JS module imports/exports
+- [x] Refactor Code from above
+- [ ] 
+
+## Day 7 - Tuesda5 - Nov 15
+
+- [ ] 
+- [ ] 
+- [ ] 
+
+## Day 8 - Thursdat - Nov 17
 
 - [ ] Update README.md for template
 - [ ] Tweak GitHub Deployment

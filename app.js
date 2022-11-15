@@ -1,176 +1,114 @@
 //////--------- Classes ---------//////
 
-class Creature {
-    constructor(name, health, strength, accuracy) {
-      this.name = name;
-      this.health = health;
-      this.strength = strength;
-      this.accuracy = accuracy;
-      this.type = null
-      this.allegiance = null;
-      this.weakness = null;
-    }
-    attack(){
-        if (Math.random() < this.accuracy) {
-            message += "<br>"
-            message += `Successful hit with ${this.strength}`
-            console.log(`Successful hit with ${this.strength}`)
-            updateEventMessageBoard(message)
-
-            return this.strength
-        }
-        else{
-            message += "<br>"
-            message += `The attack missed!`
-            console.log(`The attack missed!`)
-            return 0;
-        }
-    }
-}
-class Plant extends Creature{
-    constructor(name, health, strength, accuracy){
-        super(name, health, strength, accuracy)
-        this.allegiance = "Green Things";
-        this.image = "images/Peashooter/Peashooter.gif";
-        this.attackSound = null;
-
-    }
-}
-class Zombie extends Creature{
-    constructor(name){
-        super(name)
-        this.health = this.generateZombieHealthValue()
-        this.strength = this.generateZombieStrengthValue()
-        this.accuracy = this.generateZombieAccuracyValue()
-        this.allegiance = "Dead Things"
-        this.image = "images/Zombie/1.gif"
-        this.attackSound = null;     
-    }
-    generateZombieHealthValue(){
-        let healthValue = getRndInteger(3,6);
-        return healthValue;
-    }
-    generateZombieStrengthValue(){
-        let strengthValue = getRndInteger(2,4);
-        return strengthValue;
-    }
-    generateZombieAccuracyValue(){
-        let accuracyValue = getRndInteger(6,8);
-        accuracyValue*= 0.1
-        accuracyValue = Number(accuracyValue.toFixed(1))
-        return accuracyValue;
-    }
-
-}
-class ZombieHorde{
-    constructor(factoryType) {
-        this.factoryType = factoryType;
-        this.hordeRoster = [];
-        
-      }
-    releaseZombies(numberOfZombies=1, batchName="Zombie Grunt ") {
-        for(let i = 0; i <numberOfZombies; i++ ){
-            let name = `${batchName}` + `${i+1}`
-            const newZombie = new Zombie(name);
-            this.hordeRoster.push(newZombie);
-        }
-    }
-    printHorde() {
-        for (let zombie of this.hordeRoster) {
-            console.log(zombie);
-        }
-    }
-}
-
 //////--------- Class Imports ---------//////
+import { GameState } from './Classes/GameState.js';
+import { ZombieHorde } from './Classes/ZombieHorde.js';
+import { Plant } from './Classes/Plant.js'
 
 //////--------- Game State Variables ---------//////
 
-let gameState = {
+let gameState = new GameState()
 
-    isGameStarted: null,
-
-    hasBattleRoundBegun: null,
-    isBattleRoundComplete: null,
-    didEnemyWinBattleRound: null,
-    didPlayerWinBattleRound: null,
-    doesPlayerWantToFightNextOpponent: null,
-    didPlayerDefeatAllEnemies: null,
-    didPlayerRetreat: null,
-
-    didPlayerQuitGame: null,    
-    doesPlayerWantToPlayAgain: null,
-
-    playerWins: 0,
-    playerLoses: 0,
-    roundNumber: 0,
-
-    currentPlayer: null,
-    currentEnemy: null,
-
-    zombieHordeUnitCounter: 0
-
-}
-
-let zombieHorde;
-let zombieHordeUnitCounter = 0
+// let zombieHorde;
 
 //////--------- Game Helper Functions ---------//////
 
-const getRndInteger = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
+import { getRndInteger } from './Classes/getRndIntegerFunction.js';
 
 //////--------- Game Flow Functions ---------//////
 
-const attackSequence = (player, enemy) => {
+const attackSequence = (player=gameState.currentPlayer, enemy=gameState.currentEnemy) => {
     gameState.hasBattleRoundBegun = true
-    message = `The battle has begun. The player ${player.name} has engaged the enemy ${enemy.name}.`
-    console.log(message)
+    gameState.message = `The battle has begun. The player ${player.name} has engaged the enemy ${enemy.name}.`
+    console.log(gameState.message)
     
-    message += "<br>"
-    message += `The player ${player.name} has attacked the enemy ${enemy.name}.`
+    gameState.message += "<br>"
+    gameState.message += `The player ${player.name} has attacked the enemy ${enemy.name}.`
     console.log(`The player ${player.name} has attacked the enemy ${enemy.name}.`)
+    
+    //////////// Battle Animation
+    let playerCharacterImage = document.getElementById("playerCharacterImage")
+    playerCharacterImage.classList.add("attacking") 
 
-    enemy.health = enemy.health - player.attack()
+    /////////// Successful Attack Sequence
+    let tempPlayerAttack = player.attack()
+    enemy.health = enemy.health - tempPlayerAttack
+
+    if(tempPlayerAttack != 0){
+        gameState.message += "<br>"
+        gameState.message += `Successful hit with ${tempPlayerAttack}`
+        console.log(`Successful hit with ${tempPlayerAttack}`)
+    }
+    else if(tempPlayerAttack == 0){
+        gameState.message += "<br>"
+        gameState.message += `The attack missed!`
+        console.log(`The attack missed!`)
+    }
+
+    updateEventMessageBoard(gameState.message)
+
+    if (enemy.health <0){
+        enemy.health = 0;
+    }
+
     updateCharacterBattleView(player, enemy)
 
     if (enemy.health <= 0){
-        message += "<br>"
-        message += `The battle has ended. <br> The player ${player.name} has defeated the enemy ${enemy.name}.`
-        updateEventMessageBoard(message)
-        console.log('%c' + message,  'color: lawngreen')
+        gameState.message += "<br>"
+        gameState.message += `The battle has ended. <br> The player ${player.name} has defeated the enemy ${enemy.name}.`
+        updateEventMessageBoard(gameState.message)
+        console.log('%c' + gameState.message,  'color: lawngreen')
         console.log('%c' + "Will you engage the next enemy ship? Type Y for yes and N for no.", 'color: orange')
         enemy.image = "images/Zombie/ZombieDie.gif"
+        enemy.cry()
         updateCharacterBattleView(player, enemy)
         gameState.isBattleRoundComplete = true
         gameState.didPlayerWinBattleRound = true
         gameState.playerWins++
-        if(gameState.playerWins == zombieHorde.hordeRoster.length){
+        if(gameState.playerWins == gameState.zombieHorde.hordeRoster.length){
             gameState.didPlayerDefeatAllEnemies = true
-            message += "<br>"
-            message += `You have defeated all enemies!`
-            message += "<br>"
-            message += `You win!!!`
+            gameState.message += "<br>"
+            gameState.message += `You have defeated all enemies!`
+            gameState.message += "<br>"
+            gameState.message += `You win!!!`
         }
     }
     else{
-        message += "<br>"
-        message += `The enemy ${enemy.name} survived and retalitated against the player ${player.name}.`
+        gameState.message += "<br>"
+        gameState.message += `The enemy ${enemy.name} survived and retalitated against the player ${player.name}.`
         console.log(`The enemy ${enemy.name} survived and retalitated against the player ${player.name}.`)
 
-        player.health = player.health - enemy.attack()
+
+        let tempEnemyAttack = enemy.attack()
+        player.health = player.health - tempEnemyAttack
+
+        if(tempEnemyAttack != 0){
+            gameState.message += "<br>"
+            gameState.message += `Successful hit with ${tempEnemyAttack}`
+            console.log(`Successful hit with ${tempEnemyAttack}`)
+        }
+        else if(tempEnemyAttack == 0){
+            gameState.message += "<br>"
+            gameState.message += `The attack missed!`
+            console.log(`The attack missed!`)
+        }
+
+
+        if (player.health <0){
+            player.health = 0;
+        }
         updateCharacterBattleView(player, enemy)
         if(player.health <= 0){
-            message += "<br>"
-            message += `The battle has ended. The enemy ${enemy.name} has defeated the player ${player.name}.`
+            gameState.message += "<br>"
+            gameState.message += `The battle has ended. The enemy ${enemy.name} has defeated the player ${player.name}.`
             console.log(`The battle has ended. The enemy ${enemy.name} has defeated the player ${player.name}.`)
             gameState.isBattleRoundComplete = true
             gameState.didEnemyWinBattleRound = true
             gameState.playerLoses++
+            player.cry()
         }
     }
-    updateEventMessageBoard(message)
+    updateEventMessageBoard(gameState.message)
     updateDOM()
     console.log(gameState)
 }
@@ -204,13 +142,11 @@ const fightNextEnemyButton = document.getElementById("fightNextEnemyButton")
         gameState.roundNumber++
         
         console.log("zombieHorde")
-        console.log(zombieHorde)
-        console.log(zombieHordeUnitCounter)
-        gameState.currentEnemy = zombieHorde.hordeRoster[zombieHordeUnitCounter]
+        console.log(gameState.zombieHorde)    
+        console.log(gameState.zombieHordeUnitCounter)
+        gameState.currentEnemy = gameState.zombieHorde.hordeRoster[gameState.zombieHordeUnitCounter]
 
         updateDOM()
-        console.log("gameState.currentPlayer")
-        console.log(gameState.currentPlayer)
         console.log("gameState.currentEnemy")
         console.log(gameState.currentEnemy)
         updateCharacterBattleView(gameState.currentPlayer,gameState.currentEnemy)
@@ -235,7 +171,7 @@ const quitGameButton = document.getElementById("quitGameButton")
 const playAgainButton = document.getElementById("playAgainButton") 
       playAgainButton.onclick = function(){
         playAgain();
-        gameState.doesPlayerWantToPlayAgain == true
+        gameState.doesPlayerWantToPlayAgain = true
         console.log(gameState)
         console.log("Play Again button was pushed")
       }
@@ -246,7 +182,6 @@ const updateDOM = () => {
     updateGameStatusBar()
     updatePlayerUI()
 }
-
 const updateGameStatusBar = () => {
     let roundCounterDisplay = document.getElementById("roundCounterDisplay");
         roundCounterDisplay.innerHTML = `Round: ${gameState.roundNumber}`
@@ -364,12 +299,11 @@ const updatePlayerDOM = (player) =>{
         playerCharacterImage.src = player.image
 }
 
-
 //////--------- Onload Function ---------//////
 
 const generateZombieHorde = (zombieUnitType, hordeName, numberOfZombies) => {
-    zombieHorde = new ZombieHorde(zombieUnitType);
-    zombieHorde.releaseZombies(numberOfZombies, `${hordeName}#`);
+    gameState.zombieHorde = new ZombieHorde(zombieUnitType);
+    gameState.zombieHorde.releaseZombies(numberOfZombies, `${hordeName}#`);
     console.log(`${numberOfZombies} alien ${zombieUnitType} from ${hordeName} have appeared!!`);
 }
 
@@ -378,7 +312,7 @@ const onPageLoad = () => {
     updateDOM()
 }
 
-const startGame = () => {
+const startGame = (zombieUnitType="zombieGrunt", numberOfZombies=3,hordeName="Unknown") => {
     gameState.isGameStarted = true
     gameState.roundNumber++
 
@@ -389,8 +323,8 @@ const startGame = () => {
     generateZombieHorde(zombieUnitType, hordeName, numberOfZombies)
 
     gameState.currentPlayer = mrPothead
-    gameState.currentEnemy = zombieHorde.hordeRoster[0]
-    console.log(zombieHorde)
+    gameState.currentEnemy = gameState.zombieHorde.hordeRoster[0]
+    console.log(gameState.zombieHorde)
 }
 
 const resetGame = () => {
@@ -428,20 +362,9 @@ const playAgain = () => {
     updateCharacterBattleView(gameState.currentPlayer, gameState.currentEnemy);
 }
 
-// const clearCurrentEnemy = () => {
-
-// }
-
-// const fightNextEnemy = () => {
-
-// }
-
-
 //////--------- Main Function ---------//////
 
 var mrPothead = new Plant("Mr. Pothead", 50, 20, .8)
 
-
 onPageLoad();
 
-//----Click Play Again --> 

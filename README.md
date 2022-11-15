@@ -2,6 +2,8 @@
 
 [Live Site](https://glnewton.github.io/Green-Things-vs-Dead-Things/)
 
+[Timeline](ProjectBreakdown.md)
+
 Project Details
 Mandatory To Pass:
 
@@ -29,9 +31,6 @@ Mandatory To Pass:
 
 ###
 
-- Update Create Class with speed, type, move type?
-- JS Modules??
-
 - Animations
 1. Fade In/Out
 2. Border Flashing
@@ -39,9 +38,8 @@ Mandatory To Pass:
 4. Screen Dimming
 5. Health Bar
 
-- Sound Effect
-1. User Attack
-2. Enemy Attack
+
+- Update Create Class with speed, type, move type?
 
 ## Resources
 
