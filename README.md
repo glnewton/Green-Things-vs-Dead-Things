@@ -12,7 +12,7 @@ A RPG styled character battle demo inspired by a popular game.
 
 ![Gameplay Screenshot 1](./images/gamePlayScreenshot1.jpg)
 
-![Gameplay Screenshot 2](./images/gamePlayScreenshot1.jpg)
+![Gameplay Screenshot 2](./images/gamePlayScreenshot2.jpg)
 
 ## Build Status
 
