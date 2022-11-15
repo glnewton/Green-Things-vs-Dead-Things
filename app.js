@@ -9,8 +9,6 @@ import { Plant } from './Classes/Plant.js'
 
 let gameState = new GameState()
 
-// let zombieHorde;
-
 //////--------- Game Helper Functions ---------//////
 
 import { getRndInteger } from './Classes/getRndIntegerFunction.js';

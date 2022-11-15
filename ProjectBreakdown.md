@@ -43,16 +43,15 @@
 
 - [x] Implement JS module imports/exports
 - [x] Refactor Code from above
-- [ ] 
+- [ ] Update README.md for template
+- [ ] Tweak GitHub Deployment
 
 ## Day 7 - Wednesday - Nov 16
 
 - [ ] 
 - [ ] 
-- [ ] 
 
 ## Day 8 - Thursday - Nov 17
 
-- [ ] Update README.md for template
-- [ ] Tweak GitHub Deployment
+- [ ] 
 - [ ] 
