@@ -45,13 +45,13 @@
 - [x] Refactor Code from above
 - [ ] 
 
-## Day 7 - Tuesda5 - Nov 15
+## Day 7 - Wednesday - Nov 16
 
 - [ ] 
 - [ ] 
 - [ ] 
 
-## Day 8 - Thursdat - Nov 17
+## Day 8 - Thursday - Nov 17
 
 - [ ] Update README.md for template
 - [ ] Tweak GitHub Deployment
