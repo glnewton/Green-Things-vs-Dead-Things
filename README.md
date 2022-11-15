@@ -16,7 +16,7 @@ A RPG styled character battle demo inspired by a popular game.
 
 ## Build Status
 
-Project is a static HTML/CSS/JS web site that is deployed directly from the GitHub respository.
+Project is a static HTML/CSS/JS web site that is deployed directly from the GitHub respository via GitHub Pages.
 
 ## Code Style
 
