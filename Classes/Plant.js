@@ -1,4 +1,4 @@
-import { Creature } from "./Creature.js"
+import { Creature } from "./Creature.s"
 
 export class Plant extends Creature{
     constructor(name, health, strength, accuracy){
