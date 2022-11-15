@@ -22,13 +22,15 @@ Project is a static HTML/CSS/JS web site that is deployed directly from the GitH
 
 Elements of both functional programming and object-oriented programming are used in this project.
 
-## Technologies, Features & Libraries Used
+## Technologies, Language Features & Libraries Used
 
 - HTML
 - CSS
 - JavaScript
 - CSS Library: Bootstrap (buttons mainly)
 - JS Features: 
+    - Classes
+    - Modules
 
 ## Features
 
