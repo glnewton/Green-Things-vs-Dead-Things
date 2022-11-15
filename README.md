@@ -42,7 +42,7 @@ Elements of both functional programming and object-oriented programming are used
 
 Instructions
 
-Step 1: Clone the repository
+**Step 1: Clone the repository**
 
 Run the following code in your terminal to download the code:
 
@@ -51,7 +51,7 @@ Run the following code in your terminal to download the code:
 ![Installation Screenshot 1](./images/gamePlayScreenshot1.jpg)
 
 
-Step 2: Using VSCode, launch the index.html with the Live Server extension.
+**Step 2: Using VSCode, launch the index.html with the Live Server extension.**
 
 ![Installation Screenshot 2](./images/gamePlayScreenshot2.jpg)
 
