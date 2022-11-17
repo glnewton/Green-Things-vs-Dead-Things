@@ -4,7 +4,7 @@
 
 A RPG styled character battle demo inspired by a popular game.
 
-[Live Site](https://glnewtgiton.github.io/Green-Things-vs-Dead-Things/)
+[Live Site](https://glnewton.github.io/Green-Things-vs-Dead-Things/)
 
 [Timeline](ProjectBreakdown.md)
 
