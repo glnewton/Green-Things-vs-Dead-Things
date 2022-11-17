@@ -90,8 +90,6 @@ const attackSequence = (player=gameState.currentPlayer, enemy=gameState.currentE
             gameState.message += `The attack missed!`
             console.log(`The attack missed!`)
         }
-
-
         if (player.health <0){
             player.health = 0;
         }
@@ -109,6 +107,32 @@ const attackSequence = (player=gameState.currentPlayer, enemy=gameState.currentE
     updateEventMessageBoard(gameState.message)
     updateDOM()
     console.log(gameState)
+}
+
+const retreatSequence = (player=gameState.currentPlayer, enemy=gameState.currentEnemy) => {
+    let retreatConsequence = getRndInteger(1,3)
+    switch(retreatConsequence) {
+        case 1:
+            console.log("You tried to escape...and got away without a scratch!")  
+            break;
+        case 2:
+            player.health = Math.round(player.health/2)
+            console.log("You tried to escape and the zombie ripped off an arm and a leg in the process. BUT you survived!")
+            updateCharacterBattleView(player, enemy)
+            break;
+        case 3:
+            player.health = 0
+            console.log("You tried to escape and the zombie ripped off your head and ate your brains. Resistance is BRAINS!!!!!!!!!!!")
+            updateCharacterBattleView(player, enemy)
+            if(player.health <= 0){
+                gameState.message += "<br>"
+                gameState.message += `The game has ended. The enemy zombies defeated the player ${player.name}.`
+                console.log(`The game has ended. The enemy zombies defeated the player ${player.name}.`)
+                player.cry()
+            } 
+            break;
+            default:
+      }
 }
 
 //////--------- DOM Button OnClick Functions ---------//////
@@ -153,10 +177,9 @@ const fightNextEnemyButton = document.getElementById("fightNextEnemyButton")
     }
 
 const retreatButton = document.getElementById("retreatButton")
-      retreatButton.onclick = function(){
+      retreatButton.onclick = function(player=gameState.currentPlayer){
         //didPlayerRetreat = true,
-        let retreatConsequence = getRndInteger(1,3)
-        if(retreatConsequence)
+        retreatSequence()
         updateDOM()
         console.log("Retreat button was pushed")  
       }

@@ -4,10 +4,10 @@ export class GameState {
 
         this.hasBattleRoundBegun = null;
         this.isBattleRoundComplete = null;
-        this. didEnemyWinBattleRound = null;
+        this.didEnemyWinBattleRound = null;
         this.didPlayerWinBattleRound = null;
-        this. doesPlayerWantToFightNextOpponent = null;
-        this. didPlayerDefeatAllEnemies = null;
+        this.doesPlayerWantToFightNextOpponent = null;
+        this.didPlayerDefeatAllEnemies = null;
         this.didPlayerRetreat = null;
     
         this.didPlayerQuitGame = null;   
