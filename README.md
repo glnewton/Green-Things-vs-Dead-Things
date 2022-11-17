@@ -40,7 +40,7 @@ Elements of both functional programming and object-oriented programming are used
 
 ## Installation Instructions
 
-**Step 1: Clone the repository**
+**Step 1: Clone (or fork) the repository**
 
 Run the following code in your terminal to download the code:
 
@@ -82,9 +82,24 @@ Run the following code in your terminal to download the code:
 - Refactor with TypeScript
 
 
+
+
+## Acknowledgements
+
+- Inspired by the Plants vs Zombie videogame franchise from PopCap Games, a susidiary of Electronic Arts (EA)
+
+- Image and audio assets used from the following open source repository per "The Changjiang River License"
+
+- https://github.com/jiangnangame/New-Plants-vs-Zombies-JavaScript/blob/master/LICENSE-ENGLISH.md 
+
+## Disclaimer
+
+I am not affliated with any of the above and all work used is for educational and demonstration purposes only. No profit is generated from this project.
+
 ## Resources
 
 - https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3
+
 
 ## License
 
