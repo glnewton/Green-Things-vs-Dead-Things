@@ -144,7 +144,7 @@ const startButton = document.getElementById("startButton")
         updateDOM()
         updateEventMessageBoard("Press Attack")
         console.log("Start button was pushed")
-  }
+        }
 const attackButton = document.getElementById("attackButton")
       attackButton.onclick = function(){
         if (gameState.doesPlayerWantToFightNextOpponent == true){
@@ -152,7 +152,7 @@ const attackButton = document.getElementById("attackButton")
         }
         attackSequence(gameState.currentPlayer, gameState.currentEnemy)
         console.log("Attack button was pushed")
-}
+        }
 const fightNextEnemyButton = document.getElementById("fightNextEnemyButton")
       fightNextEnemyButton.onclick = function(){
         gameState.doesPlayerWantToFightNextOpponent = true
@@ -174,7 +174,7 @@ const fightNextEnemyButton = document.getElementById("fightNextEnemyButton")
         updateCharacterBattleView(gameState.currentPlayer,gameState.currentEnemy)
         
         console.log("Fight Next Enemy button was pushed")
-    }
+      }
 
 const retreatButton = document.getElementById("retreatButton")
       retreatButton.onclick = function(player=gameState.currentPlayer){
@@ -182,7 +182,7 @@ const retreatButton = document.getElementById("retreatButton")
         retreatSequence()
         updateDOM()
         console.log("Retreat button was pushed")  
-      }
+        }
 const quitGameButton = document.getElementById("quitGameButton")
       quitGameButton.onclick = function(){
         gameState.didPlayerQuitGame = true;
@@ -224,7 +224,6 @@ const updatePlayerUI = () => {
         document.getElementById("playAgainButton").style.display = "none"
         document.getElementById("quitGameButton").style.display = "none"        
     }
-
     if(gameState.isGameStarted !== true){
         document.getElementById("attackButton").style.display = "none"
         document.getElementById("fightNextEnemyButton").style.display = "none"
@@ -239,7 +238,6 @@ const updatePlayerUI = () => {
         document.getElementById("quitGameButton").style.display = "none"
         document.getElementById("playAgainButton").style.display = "none"
     }
-
     if(gameState.isBattleRoundComplete == true && gameState.didPlayerWinBattleRound == true){
         document.getElementById("startButton").style.display = "none"  
         document.getElementById("attackButton").style.display = "none"
@@ -247,7 +245,6 @@ const updatePlayerUI = () => {
         document.getElementById("retreatButton").style.display = "block"
         document.getElementById("quitGameButton").style.display = "block"
     }
-
     if(gameState.isBattleRoundComplete == true && gameState.didEnemyWinBattleRound == true){
         document.getElementById("startButton").style.display = "none"  
         document.getElementById("attackButton").style.display = "none"
@@ -255,7 +252,6 @@ const updatePlayerUI = () => {
         document.getElementById("playAgainButton").style.display = "block"
         document.getElementById("quitGameButton").style.display = "block" 
     }
-
     if(gameState.didPlayerQuitGame == true){
         document.getElementById("startButton").style.display = "none"    
         document.getElementById("attackButton").style.display = "none" 
@@ -264,14 +260,14 @@ const updatePlayerUI = () => {
         document.getElementById("playAgainButton").style.display = "none"
         document.getElementById("quitGameButton").style.display = "none"
         if (confirm("Quit Game?")) {
-            close();
+            window.open('', '_self', '');
+            window.close();
         }
         else{
             document.getElementById("playAgainButton").style.display = "block"
             document.getElementById("quitGameButton").style.display = "block"
         }
     }
-
     if(gameState.doesPlayerWantToFightNextOpponent == true){
         document.getElementById("startButton").style.display = "none"    
         document.getElementById("attackButton").style.display = "block" 
@@ -287,9 +283,7 @@ const updatePlayerUI = () => {
         document.getElementById("retreatButton").style.display = "none"
         document.getElementById("playAgainButton").style.display = "block"
         document.getElementById("quitGameButton").style.display = "block"
-    }
-
-    
+    }    
 }
 const updateEventMessageBoard = (message) => {
     let messageOutput = document.getElementById("messageOutput");
