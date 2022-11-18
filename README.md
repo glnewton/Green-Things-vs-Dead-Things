@@ -8,6 +8,8 @@ A RPG styled character battle demo inspired by a popular game.
 
 [Timeline](ProjectBreakdown.md)
 
+![Original Wireframe 1](./images/wireFrame-v1.jpg)
+
 ## Screenshots
 
 ![Gameplay Screenshot 1](./images/gamePlayScreenshot1.jpg)
@@ -48,11 +50,9 @@ Run the following code in your terminal to download the code:
 
 ![Installation Screenshot 1](./images/installationScreenshot1.jpg)
 
-
 **Step 2: Using VSCode, launch the index.html with the Live Server extension.**
 
 ![Installation Screenshot 2](./images/installationScreenshot2.jpg)
-
 
 ## Game Mechanics:
 
@@ -81,16 +81,19 @@ Run the following code in your terminal to download the code:
     5. Health Bar
 - Refactor with TypeScript
 
-
-
-
 ## Acknowledgements
 
 - Inspired by the Plants vs Zombie videogame franchise from PopCap Games, a susidiary of Electronic Arts (EA)
 
 - Image and audio assets used from the following open source repository per "The Changjiang River License"
 
-- https://github.com/jiangnangame/New-Plants-vs-Zombies-JavaScript/blob/master/LICENSE-ENGLISH.md 
+- https://github.com/jiangnangame/New-Plants-vs-Zombies-JavaScript/blob/master/LICENSE-ENGLISH.md
+
+- To Cycle 28
+
+- To the apprentices
+
+- To G,T,K,M et al
 
 ## Disclaimer
 
@@ -99,7 +102,6 @@ I am not affliated with any of the above and all work used is for educational an
 ## Resources
 
 - https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3
-
 
 ## License
 

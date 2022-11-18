@@ -16,8 +16,8 @@ let mrPothead = new Plant("Mr. Pothead", 35, 8, .9)
 const generateZombieHorde = (zombieUnitType, hordeName, numberOfZombies) => {
     gameState.zombieHorde = new ZombieHorde(zombieUnitType);
     gameState.zombieHorde.releaseZombies(numberOfZombies, `${hordeName}#`);
-    console.log(`${numberOfZombies} alien ${zombieUnitType} from ${hordeName} have appeared!!`)
-    gameState.message += `${numberOfZombies} alien ${zombieUnitType} from ${hordeName} have appeared!!`
+    console.log(`${numberOfZombies} undead ${zombieUnitType} from ${hordeName} have appeared!!`)
+    gameState.message += `${numberOfZombies} undead ${zombieUnitType} from ${hordeName} have appeared!!`
     updateEventMessageBoard(gameState.message);
 }
 
