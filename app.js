@@ -1,21 +1,34 @@
-//////--------- Classes ---------//////
-
 //////--------- Class Imports ---------//////
 import { GameState } from './Classes/GameState.js';
 import { ZombieHorde } from './Classes/ZombieHorde.js';
 import { Plant } from './Classes/Plant.js'
 
-//////--------- Game State Variables ---------//////
+//////--------- Game Helper Functions ---------//////
+import { getRndInteger } from './helperFunctions/getRndInteger.js';
+
+//////--------- Game State & Player Variables ---------//////
 
 let gameState = new GameState()
 
-//////--------- Game Helper Functions ---------//////
+let mrPothead = new Plant("Mr. Pothead", 35, 8, .9)
 
-import { getRndInteger } from './Classes/getRndIntegerFunction.js';
+////Called with startGame()
+const generateZombieHorde = (zombieUnitType, hordeName, numberOfZombies) => {
+    gameState.zombieHorde = new ZombieHorde(zombieUnitType);
+    gameState.zombieHorde.releaseZombies(numberOfZombies, `${hordeName}#`);
+    console.log(`${numberOfZombies} alien ${zombieUnitType} from ${hordeName} have appeared!!`)
+    gameState.message += `${numberOfZombies} alien ${zombieUnitType} from ${hordeName} have appeared!!`
+    updateEventMessageBoard(gameState.message);
+}
 
-//////--------- Game Flow Functions ---------//////
+//////--------- Game Battle Flow Functions ---------//////
 
 const attackSequence = (player=gameState.currentPlayer, enemy=gameState.currentEnemy) => {
+    
+    if (gameState.doesPlayerWantToFightNextOpponent == true){
+        gameState.doesPlayerWantToFightNextOpponent = null;
+    }
+    
     gameState.hasBattleRoundBegun = true
     gameState.message = `The battle has begun. The player ${player.name} has engaged the enemy ${enemy.name}.`
     console.log(gameState.message)
@@ -133,6 +146,28 @@ const retreatSequence = (player=gameState.currentPlayer, enemy=gameState.current
             break;
             default:
       }
+    updateDOM()
+}
+
+const fightNextEnemy = () => {
+    gameState.doesPlayerWantToFightNextOpponent = true
+
+    gameState.didEnemyWinBattleRound = null;
+    gameState.didPlayerWinBattleRound = null
+
+    gameState.zombieHordeUnitCounter++
+    gameState.roundNumber++
+    
+    console.log("zombieHorde")
+    console.log(gameState.zombieHorde)    
+    console.log(gameState.zombieHordeUnitCounter)
+    gameState.currentEnemy = gameState.zombieHorde.hordeRoster[gameState.zombieHordeUnitCounter]
+
+    updateDOM()
+    console.log("gameState.currentEnemy")
+    console.log(gameState.currentEnemy)
+    updateCharacterBattleView()
+
 }
 
 //////--------- DOM Button OnClick Functions ---------//////
@@ -140,53 +175,28 @@ const retreatSequence = (player=gameState.currentPlayer, enemy=gameState.current
 const startButton = document.getElementById("startButton")
       startButton.onclick = function(){
         startGame()
-        updateCharacterBattleView(gameState.currentPlayer, gameState.currentEnemy)
-        updateDOM()
-        updateEventMessageBoard("Press Attack")
         console.log("Start button was pushed")
         }
 const attackButton = document.getElementById("attackButton")
       attackButton.onclick = function(){
-        if (gameState.doesPlayerWantToFightNextOpponent == true){
-            gameState.doesPlayerWantToFightNextOpponent = null;
-        }
-        attackSequence(gameState.currentPlayer, gameState.currentEnemy)
+        attackSequence()
         console.log("Attack button was pushed")
         }
 const fightNextEnemyButton = document.getElementById("fightNextEnemyButton")
       fightNextEnemyButton.onclick = function(){
-        gameState.doesPlayerWantToFightNextOpponent = true
-
-        gameState.didEnemyWinBattleRound = null;
-        gameState.didPlayerWinBattleRound = null
-
-        gameState.zombieHordeUnitCounter++
-        gameState.roundNumber++
-        
-        console.log("zombieHorde")
-        console.log(gameState.zombieHorde)    
-        console.log(gameState.zombieHordeUnitCounter)
-        gameState.currentEnemy = gameState.zombieHorde.hordeRoster[gameState.zombieHordeUnitCounter]
-
-        updateDOM()
-        console.log("gameState.currentEnemy")
-        console.log(gameState.currentEnemy)
-        updateCharacterBattleView(gameState.currentPlayer,gameState.currentEnemy)
-        
+        fightNextEnemy()
         console.log("Fight Next Enemy button was pushed")
       }
-
 const retreatButton = document.getElementById("retreatButton")
       retreatButton.onclick = function(player=gameState.currentPlayer){
         //didPlayerRetreat = true,
         retreatSequence()
-        updateDOM()
+        // updateDOM()
         console.log("Retreat button was pushed")  
         }
 const quitGameButton = document.getElementById("quitGameButton")
       quitGameButton.onclick = function(){
-        gameState.didPlayerQuitGame = true;
-        updateDOM()
+        quitGame()
         console.log("Quit Game button was pushed")  
       }
 const playAgainButton = document.getElementById("playAgainButton") 
@@ -314,25 +324,22 @@ const updatePlayerDOM = (player) =>{
         playerCharacterImage.src = player.image
 }
 
-//////--------- Onload Function ---------//////
+//////--------- Window Onload Function ---------//////
 
-const generateZombieHorde = (zombieUnitType, hordeName, numberOfZombies) => {
-    gameState.zombieHorde = new ZombieHorde(zombieUnitType);
-    gameState.zombieHorde.releaseZombies(numberOfZombies, `${hordeName}#`);
-    console.log(`${numberOfZombies} alien ${zombieUnitType} from ${hordeName} have appeared!!`);
-}
-
-const onPageLoad = () => {
+window.addEventListener("load", () => {
+    console.log("Loaded")
     updateEventMessageBoard("Click Start to begin")
     updateDOM()
-}
+  });
+
+//////--------- Game Initialization, Reset, & Play Again Functions ---------//////
 
 const startGame = (zombieUnitType="zombieGrunt", numberOfZombies=3,hordeName="Unknown") => {
     gameState.isGameStarted = true
     gameState.roundNumber++
 
     zombieUnitType = "Zombie Footballer"
-    numberOfZombies = getRndInteger(3,3)
+    numberOfZombies = getRndInteger(1,5)
     hordeName = "undeadAthlete"
 
     generateZombieHorde(zombieUnitType, hordeName, numberOfZombies)
@@ -340,6 +347,15 @@ const startGame = (zombieUnitType="zombieGrunt", numberOfZombies=3,hordeName="Un
     gameState.currentPlayer = mrPothead
     gameState.currentEnemy = gameState.zombieHorde.hordeRoster[0]
     console.log(gameState.zombieHorde)
+
+    updateCharacterBattleView()
+    updateDOM()
+
+    gameState.message += "<br>"
+    gameState.message += "Press Attack"
+    
+    updateEventMessageBoard(gameState.message)
+
 }
 
 const resetGame = () => {
@@ -356,15 +372,12 @@ const resetGame = () => {
     gameState.playerLoses = 0;
     gameState.roundNumber = 0;
 
-
-
     gameState.currentEnemy = null
 
     gameState.zombieHordeUnitCounter = 0
 
-
-
-    onPageLoad();
+    updateEventMessageBoard("Click Start to begin")
+    updateDOM()
 }
 
 const playAgain = () => {
@@ -374,12 +387,20 @@ const playAgain = () => {
     console.log("Game has restarted.")
     gameState.doesPlayerWantToPlayAgain = null
     updateDOM();
-    updateCharacterBattleView(gameState.currentPlayer, gameState.currentEnemy);
+    updateCharacterBattleView();
 }
 
-//////--------- Main Function ---------//////
+const quitGame = () => {
+    if (confirm("Quit Game?")) {
+        window.open('', '_self', '');
+        window.close();
+    }
+    else{
+        console.log("Player clicked the Quit Game button, but did not quit.")
+    }
+}
 
-var mrPothead = new Plant("Mr. Pothead", 50, 20, .8)
 
-onPageLoad();
+
+
 
