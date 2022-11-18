@@ -141,7 +141,7 @@ const retreatSequence = (player=gameState.currentPlayer, enemy=gameState.current
                 gameState.message += "<br>"
                 gameState.message += `The game has ended. The enemy zombies defeated the player ${player.name}.`
                 console.log(`The game has ended. The enemy zombies defeated the player ${player.name}.`)
-                player.cry()
+                player.cry2()
             } 
             break;
             default:
