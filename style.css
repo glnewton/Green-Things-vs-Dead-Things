@@ -115,12 +115,12 @@
 }
 
 .attacking{
-    animation: 1s forwards backGroundFlash;
-    animation-duration: 3s;
+    animation: 1s forwards backGroundFlashAttacking;
+    animation-duration: 1.5s;
     animation-iteration-count: 1;
 }
 
-@keyframes backGroundFlash {
+@keyframes backGroundFlashAttacking {
     0%   {background-color:white; }
     25%  {background-color:rgb(250, 250, 154);}
     50%  {background-color:rgb(243, 243, 109);}
@@ -128,3 +128,16 @@
     100% {background-color:white;}
 }
 
+.defending{
+    animation: 1s forwards backGroundFlashDefending;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes backGroundFlashDefending {
+    0%   {background-color:white; }
+    25%  {background-color:rgb(252, 170, 167);}
+    50%  {background-color:rgb(243, 114, 109);}
+    75%  {background-color:rgb(252, 170, 167);}
+    100% {background-color:white;}
+}

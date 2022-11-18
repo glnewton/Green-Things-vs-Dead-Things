@@ -39,8 +39,9 @@ const attackSequence = (player=gameState.currentPlayer, enemy=gameState.currentE
     
     //////////// Battle Animation
     let playerCharacterImage = document.getElementById("playerCharacterImage")
-    playerCharacterImage.classList.add("attacking") 
-
+        playerCharacterImage.classList.add("attacking") 
+    let enemeyCharacterImage = document.getElementById("enemyCharacterImage")
+        enemeyCharacterImage.classList.add("defending")
     /////////// Successful Attack Sequence
     let tempPlayerAttack = player.attack()
     enemy.health = enemy.health - tempPlayerAttack
@@ -88,7 +89,6 @@ const attackSequence = (player=gameState.currentPlayer, enemy=gameState.currentE
         gameState.message += "<br>"
         gameState.message += `The enemy ${enemy.name} survived and retalitated against the player ${player.name}.`
         console.log(`The enemy ${enemy.name} survived and retalitated against the player ${player.name}.`)
-
 
         let tempEnemyAttack = enemy.attack()
         player.health = player.health - tempEnemyAttack
