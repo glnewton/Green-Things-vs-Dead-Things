@@ -21,7 +21,7 @@
 ## Day 2 - Wednesday - Nov 9
 
 - [x] Complete Attack Sequence Logic - Lose, Restart, Play Again
-- [ ] Complete Attack Sequence UI Effects
+- [x] Complete Attack Sequence UI Effects
 - [x] Incorporate Bootstrap for Buttons
 - [x] Refactor Enemy Generator factory
 
@@ -31,7 +31,7 @@
 - [x] Add images?
 - [x] Create Game state object
 - [x] Complete Attack Sequence Logic - Fight Next Enemy
-- [ ] Complete Battle Round UI
+- [x] Complete Battle Round UI
 
 ## Day 4 - Friday - Nov 11
 
@@ -43,16 +43,15 @@
 
 - [x] Implement JS module imports/exports
 - [x] Refactor Code from above
-- [ ] 
+- [x] Update README.md for template
+- [X] Review GitHub Pages Deployment
 
 ## Day 7 - Wednesday - Nov 16
 
 - [ ] 
 - [ ] 
-- [ ] 
 
 ## Day 8 - Thursday - Nov 17
 
-- [ ] Update README.md for template
-- [ ] Tweak GitHub Deployment
+- [ ] 
 - [ ] 

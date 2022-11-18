@@ -20,9 +20,7 @@
 
     height: 5vh;
     width: 100vw;
-
     border-bottom: 1px solid black;
-
     background-color: #0d0d0d;
     color: #20C20E;
 }
@@ -80,19 +78,15 @@
     height: 10vh;
     width: 100%;
     background-color: lavender;
-
 }
 
 
 #playerUI{
     display: flex;
     justify-content: space-around;
-
     height: 5vh;
     width: 100vw;
-
     background-color:#232323;
-    
 }
 
 #eventMessageBoard{
@@ -107,10 +101,9 @@
 #messageOutput{
     height: 80%;
     width: 80%;
-
     background-color: #232323;
     color: #20C20E;
-    /* color: lime */
+
 }
 
 .blankBox{ 
@@ -122,12 +115,12 @@
 }
 
 .attacking{
-    animation: 1s forwards backGroundFlash;
-    animation-duration: 4s;
+    animation: 1s forwards backGroundFlashAttacking;
+    animation-duration: 1.5s;
     animation-iteration-count: 1;
 }
 
-@keyframes backGroundFlash {
+@keyframes backGroundFlashAttacking {
     0%   {background-color:white; }
     25%  {background-color:rgb(250, 250, 154);}
     50%  {background-color:rgb(243, 243, 109);}
@@ -135,3 +128,16 @@
     100% {background-color:white;}
 }
 
+.defending{
+    animation: 1s forwards backGroundFlashDefending;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes backGroundFlashDefending {
+    0%   {background-color:white; }
+    25%  {background-color:rgb(252, 170, 167);}
+    50%  {background-color:rgb(243, 114, 109);}
+    75%  {background-color:rgb(252, 170, 167);}
+    100% {background-color:white;}
+}
