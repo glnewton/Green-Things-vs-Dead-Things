@@ -85,6 +85,7 @@ const attackSequence = (player=gameState.currentPlayer, enemy=gameState.currentE
             gameState.message += `You win!!!`
         }
     }
+    //// Enemy Attack
     else{
         gameState.message += "<br>"
         gameState.message += `The enemy ${enemy.name} survived and retalitated against the player ${player.name}.`
@@ -167,7 +168,6 @@ const fightNextEnemy = () => {
     console.log("gameState.currentEnemy")
     console.log(gameState.currentEnemy)
     updateCharacterBattleView()
-
 }
 
 //////--------- DOM Button OnClick Functions ---------//////
@@ -189,9 +189,7 @@ const fightNextEnemyButton = document.getElementById("fightNextEnemyButton")
       }
 const retreatButton = document.getElementById("retreatButton")
       retreatButton.onclick = function(player=gameState.currentPlayer){
-        //didPlayerRetreat = true,
         retreatSequence()
-        // updateDOM()
         console.log("Retreat button was pushed")  
         }
 const quitGameButton = document.getElementById("quitGameButton")
