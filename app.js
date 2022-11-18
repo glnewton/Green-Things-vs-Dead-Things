@@ -4,7 +4,7 @@ import { ZombieHorde } from './Classes/ZombieHorde.js';
 import { Plant } from './Classes/Plant.js'
 
 //////--------- Game Helper Functions ---------//////
-import { getRndInteger } from './helperFunctions/getRndInteger.js';
+import { getRndInteger } from './functions/getRndInteger.js';
 
 //////--------- Game State & Player Variables ---------//////
 

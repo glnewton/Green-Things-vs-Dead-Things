@@ -1,5 +1,5 @@
 import { Creature } from "./Creature.js"
-import { getRndInteger } from "../helperFunctions/getRndInteger.js"
+import { getRndInteger } from "../functions/getRndInteger.js"
 
 export class Zombie extends Creature{
     constructor(name){

@@ -6,7 +6,7 @@ A RPG styled character battle demo inspired by a popular game.
 
 [Live Site](https://glnewton.github.io/Green-Things-vs-Dead-Things/)
 
-[Timeline](ProjectBreakdown.md)
+[Timeline](doc/ProjectBreakdown.md)
 
 ![Original Wireframe 1](./images/wireFrame-v1.jpg)
 
